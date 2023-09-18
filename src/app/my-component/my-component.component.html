@@ -14,13 +14,15 @@
 
 <!-- Ajout d'une condition -->
 <div *ngIf="name && name.trim().length > 0">
-    Bienvenue <span [ngClass]="name==='Administrateur' ? 'red' : ''">{{name}}</span>
+    <!-- Ajout d'un pipe `titlecase` pour MAJ en 1ère lettre -->
+    Bienvenue <span [ngClass]="name==='Administrateur' ? 'red' : ''">{{name | titlecase}}</span>
 </div>
 </div>
 
 <!-- Ajout d'une boucle -->
 <ul>
-  <li *ngFor="let user of users">{{user}}
+  <!-- Ajout d'un pipe `titlecase` pour MAJ en 1ère lettre -->
+  <li *ngFor="let user of users">{{user | titlecase}}
     <!-- Bouton de suppression (remove) -->
     <button type="button" (click)="removeUser(user)">Supprimer</button>
   </li>
