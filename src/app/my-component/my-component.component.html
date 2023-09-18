@@ -1,2 +1,13 @@
 <!-- composant crée grâce à la commande ng generate component nomDuComposant -->
-<p>my-component works!</p>
+
+<div class="container">
+<form>
+    <!-- Champ de saisie (input) -->
+    <label for="name">Votre nom :</label>
+    <input type="text" [(ngModel)]="name" name="name" id="name">
+
+    <!-- Bouton de réinitialisation (reset) -->
+    <button type="button" (click)="resetName()">Reset</button>
+</form>
+<div>Bienvenue {{name}}</div>
+</div>

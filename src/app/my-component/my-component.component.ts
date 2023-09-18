@@ -6,5 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./my-component.component.css']
 })
 export class MyComponentComponent {
+  name: string = '';
 
+  resetName() {
+    this.name = '';
+  }
 }
