@@ -7,8 +7,23 @@ import { Component } from '@angular/core';
 })
 export class MyComponentComponent {
   name: string = '';
+  users:string[] = [];
 
   resetName() {
     this.name = '';
+  }
+
+  addUser() {
+    if (this.name) {
+      this.users.push(this.name);
+      this.name = '';
+    }
+  }
+
+  removeUser(user: string) {
+    const index = this.users.indexOf(user);
+    if (index !== -1) {
+      this.users.splice(index, 1);
+    }
   }
 }

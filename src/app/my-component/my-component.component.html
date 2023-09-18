@@ -8,9 +8,20 @@
 
     <!-- Bouton de réinitialisation (reset) -->
     <button type="button" (click)="resetName()">Reset</button>
+    <!-- Bouton d'ajout (add) -->
+    <button type="button" (click)="addUser()">Add</button>
 </form>
+
 <!-- Ajout d'une condition -->
 <div *ngIf="name && name.trim().length > 0">
     Bienvenue <span [ngClass]="name==='Administrateur' ? 'red' : ''">{{name}}</span>
 </div>
 </div>
+
+<!-- Ajout d'une boucle -->
+<ul>
+  <li *ngFor="let user of users">{{user}}
+    <!-- Bouton de suppression (remove) -->
+    <button type="button" (click)="removeUser(user)">Supprimer</button>
+  </li>
+</ul>
