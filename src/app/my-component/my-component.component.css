@@ -1,4 +1,10 @@
-
+/* html de taille 14 */
 .conteneur p {
     font-size: 14pt;
 }
+
+/* nom en rouge quand saisie = Administrateur */
+.red {
+    color: red;
+  }
+

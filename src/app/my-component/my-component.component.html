@@ -9,5 +9,8 @@
     <!-- Bouton de réinitialisation (reset) -->
     <button type="button" (click)="resetName()">Reset</button>
 </form>
-<div>Bienvenue {{name}}</div>
+<!-- Ajout d'une condition -->
+<div *ngIf="name && name.trim().length > 0">
+    Bienvenue <span [ngClass]="name==='Administrateur' ? 'red' : ''">{{name}}</span>
+</div>
 </div>
