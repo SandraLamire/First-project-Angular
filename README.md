@@ -2,9 +2,16 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.2.
 
+## Install project on Windows
+...\angular_workspace> cd first-project-angular   
+...\angular_workspace\first-project-angular> npm install -g @angular/cli
+...\angular_workspace\first-project-angular> npm install -g typescript
+...\angular_workspace\first-project-angular> npm install
+
 ## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files
+or launch `ng server --open` to open in navigator.
 
 ## Code scaffolding
 
