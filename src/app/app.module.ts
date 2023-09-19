@@ -6,8 +6,9 @@ import { AppComponent } from './app.component';
 import { MyComponentComponent } from './my-component/my-component.component';
 // formsModule import
 import { FormsModule } from '@angular/forms';
-// import du service
+// import des services
 import { UserService } from './services/user.service';
+import { UserDataService } from './services/user-data.service';
 
 @NgModule({
   declarations: [
@@ -20,8 +21,8 @@ import { UserService } from './services/user.service';
     // enregistrer formsModule ici
     FormsModule
   ],
-  // enregistrer le service ici
-  providers: [UserService],
+  // enregistrer les services ici
+  providers: [UserService, UserDataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
