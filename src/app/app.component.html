@@ -1,2 +1,12 @@
 <!-- appel du 1er composant crée -->
+<h2>Composant</h2>
 <app-my-component></app-my-component>
+
+<!-- Utilisation du service UserName -->
+<h2>Service</h2>
+<p>Please enter your name: </p>
+<input type="text" [(ngModel)]="userName">
+<button (click)="saveName()">Save</button>
+<button (click)="loadName()">Load</button>
+
+<p>Hello {{ userName }}</p>
