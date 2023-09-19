@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-my-component',
-  templateUrl: './my-component.component.html',
+  templateUrl: './my-component.component.html', // lie la vue avec ce modèle.ts
   styleUrls: ['./my-component.component.css']
 })
 export class MyComponentComponent {
