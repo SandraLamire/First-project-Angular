@@ -1,10 +1,11 @@
-/* html de taille 24 */
-.conteneur p {
-    font-size: 24pt;
+
+button {
+    font-size: 18pt !important; /* Utilisez !important pour forcer l'application de la règle */
 }
+
 
 /* nom en rouge quand saisie = Administrateur */
 .red {
     color: red;
-  }
+}
 
