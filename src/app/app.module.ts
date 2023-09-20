@@ -13,7 +13,7 @@ import { InscriptionComponent } from './inscription/inscription.component';
 import { UserService } from './services/user.service';
 import { UserDataService } from './services/user-data.service';
 import { AppRoutingModule } from './app-routing.module';
-
+import { EspacePersonnelComponent } from './espace-personnel/espace-personnel.component';
 
 
 @NgModule({
@@ -22,7 +22,8 @@ import { AppRoutingModule } from './app-routing.module';
     // enregistrer les composants ici
     MyComponentComponent,
     AccueilComponent,
-    InscriptionComponent 
+    InscriptionComponent,
+    EspacePersonnelComponent 
   ],
   imports: [
     BrowserModule,
