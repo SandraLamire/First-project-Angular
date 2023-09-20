@@ -1,3 +1,27 @@
 <H1>Bienvenue sur ce site</H1>
+
+<p>
 <!-- lien vers la page d'inscription -->
 <a routerLink="/inscription">S'inscrire</a>
+</p>
+
+<form>
+    <label for="email">Adresse mail :</label>
+    <input type="email" id="email" name="email" required>
+    <br>
+    <label for="password">Mot de passe :</label>
+    <input type="password" id="password" name="password" required>
+    <br>
+    <label for="birthdate">Date de naissance :</label>
+    <input type="date" id="birthdate" name="birthdate" required>
+    <br>
+    <label>
+      <input type="checkbox" name="newsletter">
+      Je souhaite m'abonner à la newsletter
+    </label>
+    <br>
+    <label for="knowledge">Connaissez-vous Angular ? (1 à 10)</label>
+    <input type="range" id="knowledge" name="knowledge" min="1" max="10">
+    <br>
+    <button type="submit">Soumettre</button>
+  </form>

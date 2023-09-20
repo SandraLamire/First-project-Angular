@@ -6,5 +6,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./inscription.component.css']
 })
 export class InscriptionComponent {
+  // ajout login pour qui soit dispo dans la vue
   login: string = "";
 }
