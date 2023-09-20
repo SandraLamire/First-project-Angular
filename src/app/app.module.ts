@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-// import de formsModule 
-import { FormsModule } from '@angular/forms';
+// import de formsModule et reactiveForms (pour formulaires complexes)
+import { FormsModule, ReactiveFormsModule  } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { MyComponentComponent } from './my-component/my-component.component';
@@ -29,6 +29,7 @@ import { EspacePersonnelComponent } from './espace-personnel/espace-personnel.co
     BrowserModule,
     // enregistrer formsModule ici
     FormsModule,
+    ReactiveFormsModule,
     AppRoutingModule
   ],
   // enregistrer les services ici

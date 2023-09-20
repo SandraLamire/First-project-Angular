@@ -13,3 +13,46 @@
   <!-- ajouter directive routerLink pour rediriger vers la nouvelle route -->
   <button type="submit" [routerLink]="['/espace-personnel', login]">Se logger</button>
 </form>
+
+<br><br>
+
+<!-- reactiveForm -->
+<form [formGroup]="monFormulaire" (ngSubmit)="onSubmit()" #f="ngForm">
+  <div>
+    <label for="nom">Nom: </label>
+    <input type="text" id="nom" name="nom" formControlName="nom">
+    <div *ngIf="monFormulaire.get('nom')?.errors?.['required']" class="text-danger">Nom requis</div>
+  </div>
+
+  <div>
+    <label for="email">Adresse mail: </label>
+    <input type="email" id="email" name="email" formControlName="email">
+    <!-- touched permet affichage du message qu'à la validation -->
+    <div *ngIf="monFormulaire.get('email')?.errors?.['required'] && monFormulaire.get('email')?.touched">Adresse mail requise</div>
+    <div *ngIf="monFormulaire.get('email')?.errors?.['email']">Adresse mail invalide</div>
+  </div>
+
+  <div>
+    <label for="password">Mot de passe: </label>
+    <input type="password" id="password" name="password" formControlName="password">
+    <div *ngIf="monFormulaire.get('password')?.errors?.['required']" class="text-danger">Mot de passe requis</div>
+    <div *ngIf="monFormulaire.get('password')?.errors?.['minlength']">Le mot de passe doit contenir au moins 6 caractères</div>
+  </div>
+
+  <div>
+    <label for="birthdate">Date de naissance: </label>
+    <input type="date" id="birthdate" name="birthdate" formControlName="birthdate">
+    <div *ngIf="monFormulaire.get('birthdate')?.errors?.['max']">La date de naissance ne peut pas être supérieure à la date du jour</div>
+  </div>
+  
+
+  <div>
+    <label>Connaissez-vous Angular ? (1 à 10)</label>
+  </div>  
+  <input type="range" name="knowledge" formControlName="knowledge" min="1" max="10" required>
+  <div *ngIf="monFormulaire.get('knowledge')?.errors?.['required']" class="text-danger">Le niveau de connaissance est requis</div>
+
+  <div>
+  <button type="submit" [routerLink]="['/espace-personnel', login]">S'inscrire</button>
+  </div>
+</form>
