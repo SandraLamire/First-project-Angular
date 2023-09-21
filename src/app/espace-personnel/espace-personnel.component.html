@@ -1,3 +1,11 @@
 <h1>Bienvenue dans votre espace personnel, {{login}} !</h1>
 
-<button (click)="goHome($event)">Retour à l'accueil</button>
+<div>
+    <p>Cliquer pour voir le message SOS</p>
+    <button (click)="sosAsyncAwait()">SOS Async/await</button>
+    <p>{{ message }}</p>
+</div>
+
+<div>
+    <button (click)="goHome($event)">Retour à l'accueil</button>
+</div>

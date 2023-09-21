@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 // import du système de route
 import { ActivatedRoute, Router } from '@angular/router';
 
+
 @Component({
   selector: 'app-espace-personnel',
   templateUrl: './espace-personnel.component.html',
@@ -28,4 +29,34 @@ export class EspacePersonnelComponent {
     $event.preventDefault();
     this.router.navigate(['/']);
   }
+
+  message: string = ''; // Variable de modèle pour stocker le message
+
+  async sosAsyncAwait(): Promise<void> {
+    this.message = '.\n';
+    await this.sleep(1000); // Attendez une seconde
+    this.message += '.\n';
+    await this.sleep(1000); // Attendez une seconde
+    this.message += '.\n';
+    await this.sleep(1000); // Attendez une seconde
+    this.message += '-\n';
+    await this.sleep(1000); // Attendez une seconde
+    this.message += '-\n';
+    await this.sleep(1000); // Attendez une seconde
+    this.message += '-\n';
+    await this.sleep(1000); // Attendez une seconde
+    this.message += '.\n';
+    await this.sleep(1000); // Attendez une seconde
+    this.message += '.\n';
+    await this.sleep(1000); // Attendez une seconde
+    this.message += '.\n';
+    await this.sleep(1000); // Attendez une seconde
+    this.message += '\t STOP';
+  }
+
+  // Fonction pour attendre un certain temps (simule le setTimeout)
+  private sleep(ms: number): Promise<void> {
+    return new Promise((resolve) => setTimeout(resolve, ms));
+  }
+
 }
