@@ -36,34 +36,34 @@ export class InscriptionComponent {
     }
   }
 
-// Définition de la fonction de validation personnalisée
-// qui renvoie un ValidatorFn qui sera utilisé pour valider un champ de formulaire
-dateValidator(): ValidatorFn {
-  // Retourne une fonction qui prend un AbstractControl en argument
-  return (control: AbstractControl): { [key: string]: any } | null => {
-    // Vérifie que 'this' et 'this.monFormulaire' existent
-    if (this && this.monFormulaire) {
-      // Vérifie que le contrôle passé en argument existe et a une valeur non nulle
-      if (control && control.value) {
-        // Convertit la valeur du contrôle en objet Date
-        const birthdate = new Date(control.value);
-        // Obtient la date actuelle
-        const today = new Date();
-        // Définit les heures, minutes, secondes et millisecondes de 'today' à zéro
-        today.setHours(0, 0, 0, 0);
-        
-        // Compare la date de naissance avec la date actuelle
-        if (birthdate > today) {
-          // Si la date de naissance est postérieure à la date actuelle,
-          // retourne un objet avec la clé "max" définie sur true pour indiquer une validation échouée
-          return { max: true };
+  // Définition de la fonction de validation personnalisée
+  // qui renvoie un ValidatorFn qui sera utilisé pour valider un champ de formulaire
+  dateValidator(): ValidatorFn {
+    // Retourne une fonction qui prend un AbstractControl en argument
+    return (control: AbstractControl): { [key: string]: any } | null => {
+      // Vérifie que 'this' et 'this.monFormulaire' existent
+      if (this && this.monFormulaire) {
+        // Vérifie que le contrôle passé en argument existe et a une valeur non nulle
+        if (control && control.value) {
+          // Convertit la valeur du contrôle en objet Date
+          const birthdate = new Date(control.value);
+          // Obtient la date actuelle
+          const today = new Date();
+          // Définit les heures, minutes, secondes et millisecondes de 'today' à zéro
+          today.setHours(0, 0, 0, 0);
+          
+          // Compare la date de naissance avec la date actuelle
+          if (birthdate > today) {
+            // Si la date de naissance est postérieure à la date actuelle,
+            // retourne un objet avec la clé "max" définie sur true pour indiquer une validation échouée
+            return { max: true };
+          }
         }
       }
-    }
-    
-    // Si toutes les conditions sont satisfaites, 
-    // retourne null pour indiquer que la validation a réussi
-    return null;
-  };
+      
+      // Si toutes les conditions sont satisfaites, 
+      // retourne null pour indiquer que la validation a réussi
+      return null;
+    };
+  }
 }
-
