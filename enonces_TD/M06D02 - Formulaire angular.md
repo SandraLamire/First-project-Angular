@@ -75,7 +75,7 @@ export class AppComponent {
     nom: new FormControl('', Validators.required),
     email: new FormControl('', [Validators.required, Validators.email]),
     password: new FormControl('', [Validators.required, Validators.minLength(6)]),
-    birthdate: new FormControl('', this.dateValidator),
+    birthdate: new FormControl('', [Validators.required, this.dateValidator.bind(this)]),
     knowledge: new FormControl(0, [Validators.required, Validators.min(1), Validators.max(10)])
   });
 
