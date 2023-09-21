@@ -30,9 +30,10 @@ export class EspacePersonnelComponent {
     this.router.navigate(['/']);
   }
 
+  /* Pour callback, promise et asyn/await */
   message: string = ''; // Variable de modèle pour stocker le message
 
-  /* Fonctions bipLong et bipCourt utilisées pour callback et promise */
+  /* CALLBACK */
   bipLong(callback: Function) {
     // jouez un bip sonore long d'une seconde
     setTimeout(() => {
@@ -49,7 +50,6 @@ export class EspacePersonnelComponent {
     }, 1000);
   }
 
-  /* CALLBACK */
   sosCallback() {
     this.bipCourt(() => {
       this.bipCourt(() => {
@@ -70,6 +70,34 @@ export class EspacePersonnelComponent {
         });
       });
     });
+  }
+
+  /* PROMISE */
+  bipLongPromesse(): Promise<void> {
+    return new Promise((resolve, reject) => {
+      this.message += '-\n';
+      setTimeout(() => resolve(), 1000);
+    });
+  }
+  
+  bipCourtPromesse(): Promise<void> {
+    return new Promise((resolve, reject) => {
+      this.message += '.\n';
+      setTimeout(() => resolve(), 1000);
+    });
+  }
+
+  sosPromesses() {
+    this.bipCourtPromesse()
+      .then(() => this.bipCourtPromesse())
+      .then(() => this.bipCourtPromesse())
+      .then(() => this.bipLongPromesse())
+      .then(() => this.bipLongPromesse())
+      .then(() => this.bipLongPromesse())
+      .then(() => this.bipCourtPromesse())
+      .then(() => this.bipCourtPromesse())
+      .then(() => this.bipCourtPromesse())
+      .then(() => this.message += "STOP");
   }
 
   /* ASYNC/AWAIT */
