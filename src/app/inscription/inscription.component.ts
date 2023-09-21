@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 // import nécessaires aux formulaires
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { ValidatorFn } from '@angular/forms';
+import { AbstractControl } from '@angular/forms';
 
 @Component({
   selector: 'app-inscription',
@@ -15,8 +17,7 @@ export class InscriptionComponent {
     nom: new FormControl('', Validators.required),
     email: new FormControl('', [Validators.required, Validators.email]),
     password: new FormControl('', [Validators.required, Validators.minLength(6)]),
-    // lier la fonction dateValidator au contexte actuel (this) à l'aide de la méthode bind
-    birthdate: new FormControl('', [Validators.required, this.dateValidator.bind(this)]),
+    birthdate: new FormControl('', this.dateValidator()),
     knowledge: new FormControl(0, [Validators.required, Validators.min(1), Validators.max(10)])
   });
 
@@ -36,22 +37,20 @@ export class InscriptionComponent {
     }
   }
 
-  dateValidator(): {[key: string]: any} | null {
-    if (this.monFormulaire) {
-      const control = this.monFormulaire.get('birthdate');
-      if (control && control.value) {
-        const birthdate = new Date(control.value);
-        const today = new Date();
-        today.setHours(0, 0, 0, 0);
-        if (birthdate > today) {
-          return {max: true};
+  dateValidator(): ValidatorFn {
+    return (control: AbstractControl): { [key: string]: any } | null => {
+      if (this && this.monFormulaire) {
+        if (control && control.value) {
+          const birthdate = new Date(control.value);
+          const today = new Date();
+          today.setHours(0, 0, 0, 0);
+          if (birthdate > today) {
+            return { max: true };
+          }
         }
       }
-    }
-    return null;
+      return null;
+    };
   }
-
-  
-
 
 }

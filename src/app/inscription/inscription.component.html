@@ -42,7 +42,7 @@
   <div>
     <label for="birthdate">Date de naissance: </label>
     <input type="date" id="birthdate" name="birthdate" formControlName="birthdate">
-    <div *ngIf="monFormulaire.get('birthdate')?.errors?.['max']">La date de naissance ne peut pas être supérieure à la date du jour</div>
+    <div *ngIf="monFormulaire.get('birthdate')?.errors?.['max']" class="text-danger">La date de naissance ne peut pas être supérieure à la date du jour</div>
   </div>
   
 
