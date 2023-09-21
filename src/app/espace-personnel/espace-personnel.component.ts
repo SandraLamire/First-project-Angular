@@ -32,6 +32,47 @@ export class EspacePersonnelComponent {
 
   message: string = ''; // Variable de modèle pour stocker le message
 
+  /* Fonctions bipLong et bipCourt utilisées pour callback et promise */
+  bipLong(callback: Function) {
+    // jouez un bip sonore long d'une seconde
+    setTimeout(() => {
+      this.message += '-\n';
+      callback();
+    }, 1000);
+  }
+
+  bipCourt(callback: Function) {
+    // jouez un bip sonore court d'une dixième de seconde
+    setTimeout(() => {
+      this.message += '.\n';
+      callback();
+    }, 1000);
+  }
+
+  /* CALLBACK */
+  sosCallback() {
+    this.bipCourt(() => {
+      this.bipCourt(() => {
+        this.bipCourt(() => {
+          this.bipLong(() => {
+            this.bipLong(() => {
+              this.bipLong(() => {
+                this.bipCourt(() => {
+                  this.bipCourt(() => {
+                    this.bipCourt(() => {
+                      this.message += "STOP";
+                    });
+                  });
+                });
+              });
+            });
+          });
+        });
+      });
+    });
+  }
+
+  /* ASYNC/AWAIT */
   async sosAsyncAwait(): Promise<void> {
     this.message = '.\n';
     await this.sleep(1000); // Attendez une seconde
@@ -54,9 +95,10 @@ export class EspacePersonnelComponent {
     this.message += '\t STOP';
   }
 
-  // Fonction pour attendre un certain temps (simule le setTimeout)
+  // Fonction personnalisée pour attendre un certain temps (simule le setTimeout qui est moins lisible)
   private sleep(ms: number): Promise<void> {
     return new Promise((resolve) => setTimeout(resolve, ms));
   }
+
 
 }
