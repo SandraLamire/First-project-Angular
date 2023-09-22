@@ -14,6 +14,8 @@ import { UserService } from './services/user.service';
 import { UserDataService } from './services/user-data.service';
 import { AppRoutingModule } from './app-routing.module';
 import { EspacePersonnelComponent } from './espace-personnel/espace-personnel.component';
+import { HttpClientModule } from '@angular/common/http';
+import { ApiComponentComponent } from './api-component/api-component.component';
 
 
 @NgModule({
@@ -23,10 +25,13 @@ import { EspacePersonnelComponent } from './espace-personnel/espace-personnel.co
     MyComponentComponent,
     AccueilComponent,
     InscriptionComponent,
-    EspacePersonnelComponent 
+    EspacePersonnelComponent,
+    ApiComponentComponent,
   ],
   imports: [
     BrowserModule,
+    // pour pouvoir faire des APIs
+    HttpClientModule,
     // enregistrer formsModule ici
     FormsModule,
     ReactiveFormsModule,
